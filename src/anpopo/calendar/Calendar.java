@@ -3,7 +3,7 @@ package anpopo.calendar;
 import java.util.Scanner;
 
 public class Calendar {
-	private static final int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private static final int[] MAX_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	public int getMaxDaysOfMonth(int month) {
 		return MAX_DAYS[month - 1];
@@ -19,15 +19,35 @@ public class Calendar {
 	}
 
 	public static void main(String[] args) {
-
+		
+		// 반복 횟수 입력 받기
+		System.out.println("반복횟수를 입력하세요.");
+		Scanner repeat = new Scanner(System.in);
+		int reps = repeat.nextInt();
+		
+		Calendar cal = new Calendar();
+		
+		
+		// 반복하는 횟수만큼 달을 입력 받기 
 		System.out.println("달을 입력하세요.");
 		Scanner scanner = new Scanner(System.in);
-		Calendar cal = new Calendar();
-		int a = scanner.nextInt();
-		if (a > 0 && a < 13) {
-			System.out.printf("%d월은  %d일까지 있습니다.%n", a, cal.getMaxDaysOfMonth(a));
-		} else {
-			System.out.println("달을 잘못 입력하셨습니데이~");
+		String[] months = new String[reps];
+		
+		for (int i = 0; i < reps; i++) {
+			months[i] = scanner.next();
+		}
+		
+		
+		// 해당하는 월 출력하기
+		for (String month : months) {
+			
+			int c = Integer.parseInt(month);
+			
+			if (c < 13 && c > 0) {
+				System.out.printf("%d월은  %d일 까지 있습니다.%n", c, cal.getMaxDaysOfMonth(c));
+			} else {
+				System.out.printf("야이노무자슥아 %d월은 달력에 없다.\n", c);
+			}
 		}
 
 	}
