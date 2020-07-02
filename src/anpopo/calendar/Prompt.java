@@ -9,18 +9,24 @@ public class Prompt {
 	public void runPrompt() {
 		// 메소드 사용을 위한 인스턴스 생성
 		Calendar cal = new Calendar();
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		
 		// 반복해서 입력받기
-
 		while (true) {
+			System.out.println("연도를 입력하세요");
+			System.out.print(PROMPT);
+			int year = scanner.nextInt();
+			
 			System.out.println("월을 입력하세요.");
 			System.out.print(PROMPT);
-			Scanner scanner = new Scanner(System.in);
 			int month = scanner.nextInt();
 			if (month < 1 || month > 12) {
 				System.out.println("Have a nice day~~");
 				break;
 			}
-			cal.printCalendar(2017, month);
+			cal.printCalendar(year, month);
 		}
 
 	}
